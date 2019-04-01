@@ -13,8 +13,6 @@ class CompanyContainer extends Component {
   state = {
     showEditForm: false,
     editCompany: null,
-    searchTerm: '',
-    searchResults: [],
     sortedCompanies: [],
     showSortedCo: false
   };
@@ -24,6 +22,7 @@ class CompanyContainer extends Component {
   }
 
   handleEditClick = id => {
+    // leaf node is CompanyCard via CompanyList
     let editCompany = this.props.companies.find(
       company => company.id === id
     );
@@ -33,7 +32,7 @@ class CompanyContainer extends Component {
   };
 
   handleEditSubmit = (company) => {
-    debugger
+    // passed down to editForm
     this.setState({ showEditForm: false })
     const updatedCompanies = this.props.companies.map( c => {
         if(c.id === company.id){
@@ -54,17 +53,11 @@ class CompanyContainer extends Component {
     this.setState({ sortedCompanies: sortedCompanies })
   }
 
-
   render() {
-    let allCompanies = this.state.showSortedCo ? this.state.sortedCompanies : this.state.companies
-    let renderedCompanies = this.state.searchTerm.length ? 
-      this.state.searchResults : 
-      allCompanies;
-    
     return (
       <div>
         
-        <Search handleSearchChange={this.handleSearchChange} />
+        <Search  />
         <SortedCompanies sortCompanies={this.sortCompanies} />
        
 
