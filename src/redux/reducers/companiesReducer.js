@@ -12,7 +12,7 @@ export function companiesReducer(state = [], action){
 
         case 'ADD_COMPANY':
             let newCompany = action.company
-            let newState = state.concat(newCompany)
+            let newState = [newCompany, ...state]
             return newState
 
         default: 

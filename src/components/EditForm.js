@@ -29,7 +29,7 @@ class EditForm extends Component {
     } = this.props.company;
 
     return (
-      <Card>
+      
         <Form onSubmit={() => this.props.handleEditSubmit(this.state)}>
           <Form.Group widths="equal">
             <Form.Input
@@ -46,9 +46,6 @@ class EditForm extends Component {
               onChange={this.handleOnChange}
               defaultValue={status}
             />
-          </Form.Group>
-
-          <Form.Group widths="equal">
             <Form.Input
               fluid
               label="Financial Performance Score"
@@ -63,7 +60,7 @@ class EditForm extends Component {
               onChange={this.handleOnChange}
               defaultValue={keyContacts}
             />
-          </Form.Group>
+        
 
           <Form.TextArea
             label="Company Info"
@@ -71,10 +68,10 @@ class EditForm extends Component {
             onChange={this.handleOnChange}
             defaultValue={companyInfo}
           />
-
-          <Form.Button type='submit'>Submit</Form.Button>
+          </Form.Group>
+          <Form.Button type='submit'>Edit Company</Form.Button>
         </Form>
-      </Card>
+      
     );
   }
 }

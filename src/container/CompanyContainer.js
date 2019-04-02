@@ -44,25 +44,17 @@ class CompanyContainer extends Component {
     this.props.dispatch(addCompanies(updatedCompanies))
   }
 
-  sortCompanies = () => {
-    this.setState({ showSortedCo: !this.state.showSortedCo })
-    let companies = this.props.companies
-    let sortedCompanies = companies.slice().sort( 
-      (a, b) => b.financialPerformanceScore - a.financialPerformanceScore   
-      )
-    this.setState({ sortedCompanies: sortedCompanies })
-  }
-
   render() {
     return (
       <div>
         
         <Search  />
+        <div>||</div>
         <SortedCompanies sortCompanies={this.sortCompanies} />
        
-
+        <div style={{padding: '15px'}}>
         <CreateCompany />
-  
+        </div>
         {this.state.showEditForm ? (
           <EditForm
             company={this.state.editCompany}

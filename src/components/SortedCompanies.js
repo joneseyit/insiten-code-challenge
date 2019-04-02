@@ -24,6 +24,7 @@ class SortedCompanies extends Component {
         return (
             <div>
                 <Button 
+                color={this.props.showSortedList ? 'blue' : null}
                 onClick ={this.sortCompanies} 
                 >
                     Sort by Highest Financial Performance

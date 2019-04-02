@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addSearchResults, updateSearchTerm } from '../redux/actions';
+import { Icon } from 'semantic-ui-react'
 
 
 class Search extends React.Component {
@@ -18,6 +19,7 @@ class Search extends React.Component {
     render(){
         return(
             <div className="ui icon input">
+            <Icon name='search'/>
                 <input
                     type='text'
                     placeholder='Search by company name'

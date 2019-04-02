@@ -7,6 +7,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers/rootReducer';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 let store = createStore(
     rootReducer,
@@ -14,9 +15,11 @@ let store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
+    <Router>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </Router>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
