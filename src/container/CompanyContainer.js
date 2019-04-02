@@ -7,6 +7,7 @@ import Search from "../components/Search";
 import SortedCompanies from "../components/SortedCompanies";
 import { connect } from 'react-redux'
 import { addCompanies } from '../redux/actions'
+import { Segment } from 'semantic-ui-react'
 
 
 class CompanyContainer extends Component {
@@ -47,20 +48,25 @@ class CompanyContainer extends Component {
   render() {
     return (
       <div>
-        
-        <Search  />
-        <div>||</div>
-        <SortedCompanies sortCompanies={this.sortCompanies} />
+        <Segment>
+          <Search  />
+          <div>||</div>
+          <SortedCompanies sortCompanies={this.sortCompanies} />
+        </Segment>
        
-        <div style={{padding: '15px'}}>
-        <CreateCompany />
-        </div>
-        {this.state.showEditForm ? (
-          <EditForm
-            company={this.state.editCompany}
-            handleEditSubmit={this.handleEditSubmit}
-          />
-        ) : null}
+       <Segment>
+          <div style={{padding: '15px'}}>
+          <CreateCompany />
+          </div>
+          {this.state.showEditForm ? (
+            <Segment>
+              <EditForm
+                company={this.state.editCompany}
+                handleEditSubmit={this.handleEditSubmit}
+              />
+            </Segment>
+          ) : null}
+        </Segment>
 
         <CompanyList
           handleEditClick={this.handleEditClick}

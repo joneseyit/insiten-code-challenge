@@ -29,7 +29,7 @@ class CreateCompany extends Component {
   render() {
     return (
       <div>
-        <h3>Add a New Company Below</h3>
+        <h3>Add a New Company</h3>
         <Form onSubmit={() => this.handleCreateSubmit(this.state)} className="create-form">
           <Form.Group widths="equal">
             <Form.Input
