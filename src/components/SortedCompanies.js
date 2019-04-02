@@ -23,7 +23,11 @@ class SortedCompanies extends Component {
     render() {
         return (
             <div>
-                <Button onClick ={this.sortCompanies} >Sort by Highest Financial Performance</Button>
+                <Button 
+                onClick ={this.sortCompanies} 
+                >
+                    Sort by Highest Financial Performance
+                </Button>
             </div>
         )
     }

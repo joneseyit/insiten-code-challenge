@@ -19,8 +19,8 @@ const CompanyList = (props) => {
     showCompanies = props.companies
   }
   return (
-    <div className='six wide column'>
-      <Card.Group ui centered>          
+    <div>
+      <Card.Group ui centered itemsPerRow={6}>          
         {showCompanies.map(company => (
           <CompanyCard
             key = {company.id}
