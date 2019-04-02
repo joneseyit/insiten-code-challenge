@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addSearchResults } from '../redux/actions';
+import { addSearchResults, updateSearchTerm } from '../redux/actions';
+
 
 class Search extends React.Component {
-    state = {
-        searchTerm: ''
-    }
+
     
     handleSearchChange = (e) => {
         let searchTerm = e.target.value.toLowerCase()
-        this.setState({ searchTerm: searchTerm })
+        this.props.dispatch(updateSearchTerm(searchTerm))
         let searchResults = this.props.companies.filter( 
         company => company.name.toLowerCase().includes(searchTerm)
         )
@@ -30,8 +29,11 @@ class Search extends React.Component {
 
 }
 
-const mapStateToProps = ( {companies} ) => {
-    return { companies: companies }
+const mapStateToProps = ( {companies, sortedCompanies } ) => {
+    return { 
+        companies: companies, 
+        sortedCompanies: sortedCompanies
+    }
 }
 
 export default connect(mapStateToProps)(Search)

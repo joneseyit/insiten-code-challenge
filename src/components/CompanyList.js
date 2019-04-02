@@ -3,8 +3,21 @@ import { Card } from "semantic-ui-react";
 import CompanyCard from "./CompanyCard";
 import { connect } from 'react-redux'
 
+
+// const showCompanies = ( ( props.searchTerm !== ''  && props.searchResults ) || props.sortCompanies) || props.companies
+
+
 const CompanyList = (props) => {
-  const showCompanies = (props.searchResults || props.sortCompanies) || props.companies
+  let showCompanies;
+  if(props.searchTerm !== '' && props.showSortedList) {
+    showCompanies = props.sortedCompanies
+  } else if(props.searchTerm !== ''){
+    showCompanies = props.searchResults
+  } else if(props.showSortedList){
+    showCompanies = props.sortedCompanies
+  } else {
+    showCompanies = props.companies
+  }
   return (
     <div className='six wide column'>
       <Card.Group ui centered>          
@@ -20,11 +33,13 @@ const CompanyList = (props) => {
   );
 }
 
-const mapStateToProps = ({ companies, searchResults, sortedCompanies }) => {
+const mapStateToProps = ({ companies, searchResults, sortedCompanies, searchTerm, showSortedList }) => {
   return { 
     companies: companies,
     searchResults: searchResults,
-    sortCompanies: sortedCompanies
+    sortedCompanies: sortedCompanies,
+    searchTerm: searchTerm,
+    showSortedList: showSortedList
   }
 }
 

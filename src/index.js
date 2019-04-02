@@ -9,14 +9,14 @@ import { Provider } from 'react-redux';
 import rootReducer from './redux/reducers/rootReducer';
 
 let store = createStore(
-    rootReducer, 
-    window.__REDUX_DEVTOOLS_EXTENSION__ && 
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
     <Provider store={store}>
         <App />
-    </Provider>, 
+    </Provider>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

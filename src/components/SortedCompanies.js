@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { sortedCompanies } from '../redux/actions'
+import { sortedCompanies, toggleSortedList } from '../redux/actions'
 
 
 class SortedCompanies extends Component {
-    state = {
-        showSortedCo: false
-    }
 
     sortCompanies = () => {
-        if(this.state.showSortedCo === true) {
+        if(this.props.showSortedList === true) {
             this.props.dispatch(sortedCompanies(null))
-            this.setState({ showSortedCo: !this.state.showSortedCo })
+            this.props.dispatch(toggleSortedList(true))
         } else {
-            this.setState({ showSortedCo: !this.state.showSortedCo })
-            let companies = this.props.companies
+            this.props.dispatch(toggleSortedList(false))
+            let companies = ((this.props.searchTerm !==  '') && this.props.searchResults) || this.props.companies
             let updatedCompanies = companies.slice().sort( 
               (a, b) => b.financialPerformanceScore - a.financialPerformanceScore   
               )
@@ -32,10 +29,12 @@ class SortedCompanies extends Component {
     }
 }
 
-const mapStateToProps = ({ companies, searchResults }) => {
+const mapStateToProps = ({ companies, searchResults, showSortedList, searchTerm }) => {
     return { 
         companies: companies,
-        searchResults: searchResults
+        searchTerm: searchTerm,
+        searchResults: searchResults,
+        showSortedList: showSortedList
     }
 }
 
