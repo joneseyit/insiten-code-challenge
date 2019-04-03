@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import { connect } from 'react-redux'
 
 //component called from Container, triggered from CompanyCard
@@ -76,9 +76,8 @@ class EditForm extends Component {
   }
 }
 
-const mapStateToProps = ({editCompany, companies}) => {
+const mapStateToProps = ({ companies }) => {
   return { 
-    editCompany: editCompany, 
     companies: companies
   }
 }

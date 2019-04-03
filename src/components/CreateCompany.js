@@ -21,7 +21,6 @@ class CreateCompany extends Component {
 
   handleCreateSubmit = company => {
     company.id = this.props.companies.length + 1;
-    const updatedCompanyList = this.props.companies.concat(company);
     this.props.dispatch(addCompany(company))
     document.querySelector(".create-form").reset()
   };
