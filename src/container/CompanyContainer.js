@@ -7,7 +7,7 @@ import Search from "../components/Search";
 import SortedCompanies from "../components/SortedCompanies";
 import { connect } from 'react-redux'
 import { addCompanies } from '../redux/actions'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Container } from 'semantic-ui-react'
 
 
 class CompanyContainer extends Component {
@@ -48,6 +48,7 @@ class CompanyContainer extends Component {
   render() {
     return (
       <div>
+        <Container>
         <Segment>
           <Search  />
           <div>||</div>
@@ -71,6 +72,7 @@ class CompanyContainer extends Component {
         <CompanyList
           handleEditClick={this.handleEditClick}
         />
+        </Container>
       </div>
     );
   }
